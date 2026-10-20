@@ -1,0 +1,23 @@
+/*
+ * Scroll-performance overrides.
+ *
+ * These are not part of the recovered stylesheet. They only change properties
+ * that are invisible at the design's opacity levels but expensive to composite
+ * while scrolling.
+ */
+
+/*
+ * Once scrolled, the nav background is #f2ede4f7 (97% opaque), so the 20px
+ * backdrop blur behind it is essentially invisible — yet it forces the
+ * compositor to re-blur the page on every scroll frame. Dropping it in the
+ * scrolled state keeps the look and removes that per-frame cost.
+ */
+.nav.scrolled {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* The hero wordmark is translated by GSAP on scroll; promote it once. */
+.hero-wordmark-large {
+  will-change: transform;
+}
