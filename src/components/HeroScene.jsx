@@ -2,6 +2,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import { isMobileViewport } from '../hooks/useScrollProgress'
+import { asset } from '../lib/asset'
 
 function useHeroPose(progress, mobile) {
   return (value, mobileView) => {
@@ -365,7 +366,7 @@ export default function HeroScene({ progressRef }) {
         <directionalLight position={[-6, 4, -4]} intensity={1.8} color="#FFD49A" />
         <directionalLight position={[0, -4, -8]} intensity={0.8} color="#F5EDE0" />
         <ambientLight intensity={0.8} color="#F2EDE4" />
-        <Environment files="/hdri/studio_small_03_1k.hdr" />
+        <Environment files={asset('hdri/studio_small_03_1k.hdr')} />
         <Suspense fallback={null}>
           <HeroSculpture progressRef={progressRef} />
         </Suspense>

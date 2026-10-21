@@ -5,11 +5,12 @@ import CardSwap, { Card } from './CardSwap'
 import Tilt from './Tilt'
 import { useReveal } from '../hooks/useReveal'
 import { scrollToTarget } from '../lib/smoothScroll'
+import { asset } from '../lib/asset'
 import { ziyaCapabilities, ziyaMetrics } from '../data/site'
 
-const heroImage = '/assets/Ziya-1-Cn-7oOnA.jpeg'
-const galleryOne = '/assets/Ziya-2-CpEUQkaM.png'
-const galleryTwo = '/assets/Ziya-3-Bqkbg-zu.png'
+const heroImage = asset('assets/Ziya-1-Cn-7oOnA.jpeg')
+const galleryOne = asset('assets/Ziya-2-CpEUQkaM.png')
+const galleryTwo = asset('assets/Ziya-3-Bqkbg-zu.png')
 
 function getCardSize(width) {
   if (width <= 480) return { cW: 300, cH: 280, cD: 18, vD: 28 }

@@ -4,11 +4,12 @@ import { ArrowRight, ChevronLeft } from 'lucide-react'
 import CardSwap, { Card } from './CardSwap'
 import Tilt from './Tilt'
 import { useReveal } from '../hooks/useReveal'
+import { asset } from '../lib/asset'
 import { hotspotCapabilities, hotspotMetrics } from '../data/site'
 
-const heroImage = '/assets/Hotspot-1-DCjhMPZA.png'
-const galleryOne = '/assets/Hotspot-2-B2BXDtOr.png'
-const galleryTwo = '/assets/Hotspot-3-BsXrKTyQ.png'
+const heroImage = asset('assets/Hotspot-1-DCjhMPZA.png')
+const galleryOne = asset('assets/Hotspot-2-B2BXDtOr.png')
+const galleryTwo = asset('assets/Hotspot-3-BsXrKTyQ.png')
 
 function getCardSize(width) {
   if (width <= 480) return { cW: 300, cH: 280, cD: 18, vD: 28 }

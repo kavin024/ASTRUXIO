@@ -108,6 +108,37 @@ No form was submitted to the live site during analysis or reconstruction.
 Fonts are loaded from the original Google Fonts URL in `index.html`; no font binaries are
 bundled.
 
+## Deploying to GitHub Pages
+
+The site is a single-page Vite build (no URL routes), so it needs no SPA rewrite rules.
+`.github/workflows/deploy.yml` builds and publishes it on every push to `main`.
+
+1. Push the repo to GitHub (this one is `kavin024/ASTRUXIO`).
+2. In the repo, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Push to `main` (or run **Actions → Deploy to GitHub Pages → Run workflow**).
+4. The site appears at `https://<user>.github.io/<repo>/` — here
+   `https://kavin024.github.io/ASTRUXIO/`.
+
+Project sites are served from a subpath, so the workflow builds with
+`BASE_PATH=/<repo-name>/`. All public files are resolved through
+`src/lib/asset.js`, which prefixes `import.meta.env.BASE_URL`, so images and the HDR work
+from any base path.
+
+For a user site (`<user>.github.io` repo) or a custom domain, change the workflow's
+`BASE_PATH` to `/` and add the domain under **Settings → Pages → Custom domain**.
+
+To send real contact email from the deployed site, add `VITE_EMAILJS_SERVICE_ID`,
+`VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` under
+**Settings → Secrets and variables → Actions → New repository secret**. Without them the
+form stays in demo mode.
+
+Local build of the deployed artifact:
+
+```bash
+BASE_PATH=/ASTRUXIO/ npm run build
+BASE_PATH=/ASTRUXIO/ npm run preview   # http://127.0.0.1:4173/ASTRUXIO/
+```
+
 ## Verification
 
 Checked in Chromium at 1440×900 and 390×844:
