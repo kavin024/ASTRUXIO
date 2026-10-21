@@ -119,3 +119,4 @@ Checked in Chromium at 1440×900 and 390×844:
 - No page errors or failed requests. Only benign upstream warnings remain (`THREE.Clock`
   deprecation and a drei static-position warning for the scroll container).
 # ASTRUXIO
+# ASTRUXIO
